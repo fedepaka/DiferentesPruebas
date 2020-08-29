@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Bica.VirtualWalletModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACTIVATE_TOKEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_USER" Type="bigint" Nullable="false" />
+          <Property Name="ACTIVATE_TOKEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="CREATED_USER_ID" Type="bigint" Nullable="false" />
+          <Property Name="MODIFIED_USER_ID" Type="bigint" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="DELETED" Type="tinyint" Nullable="false" />
+          <Property Name="DELETED_DATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PSP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="CREATED_USER_ID" Type="bigint" Nullable="false" />
+          <Property Name="MODIFIED_USER_ID" Type="bigint" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="DELETED" Type="tinyint" Nullable="false" />
+          <Property Name="DELETED_DATE" Type="datetime" />
+          <Property Name="ENABLED" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="255" />
+          <Property Name="CREATED_USER_ID" Type="bigint" Nullable="false" />
+          <Property Name="MODIFIED_USER_ID" Type="bigint" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="DELETED" Type="tinyint" Nullable="false" />
+          <Property Name="DELETED_DATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SHOP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="255" />
+          <Property Name="LATITUDE" Type="decimal" Precision="20" Scale="18" Nullable="false" />
+          <Property Name="LONGITUDE" Type="decimal" Precision="20" Scale="18" Nullable="false" />
+          <Property Name="ACCURACY" Type="decimal" Precision="20" Scale="18" />
+          <Property Name="ALTITUDE" Type="decimal" Precision="20" Scale="18" />
+          <Property Name="CREATED_USER_ID" Type="bigint" Nullable="false" />
+          <Property Name="MODIFIED_USER_ID" Type="bigint" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="DELETED" Type="tinyint" />
+          <Property Name="DELETED_DATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SUSCRIBER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_PSP" Type="bigint" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="CBU" Type="nvarchar" MaxLength="22" />
+          <Property Name="CREATED_USER_ID" Type="bigint" Nullable="false" />
+          <Property Name="MODIFIED_USER_ID" Type="bigint" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="DELETED" Type="tinyint" Nullable="false" />
+          <Property Name="DELETED_DATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SUSCRIBER_CONFIG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_SUSCRIBER" Type="bigint" Nullable="false" />
+          <Property Name="KEY" Type="nvarchar" MaxLength="100" />
+          <Property Name="VALUE" Type="nvarchar(max)" />
+          <Property Name="CREATED_USER_ID" Type="bigint" Nullable="false" />
+          <Property Name="MODIFIED_USER_ID" Type="bigint" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="DELETED" Type="tinyint" Nullable="false" />
+          <Property Name="DELETED_DATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="nchar" MaxLength="100" />
+          <Property Name="LAST_NAME" Type="nchar" MaxLength="100" />
+          <Property Name="USER_NAME" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="EMAIL" Type="nchar" MaxLength="100" />
+          <Property Name="PHONE" Type="nchar" MaxLength="100" />
+          <Property Name="ADDRESS" Type="nchar" MaxLength="100" />
+          <Property Name="CREATED_USER_ID" Type="bigint" Nullable="false" />
+          <Property Name="MODIFIED_USER_ID" Type="bigint" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="DELETED" Type="tinyint" Nullable="false" />
+          <Property Name="DELETED_DATE" Type="datetime" />
+          <Property Name="ENABLED" Type="tinyint" Nullable="false" />
+          <Property Name="PHOTO_IMAGE" Type="image" />
+          <Property Name="PHOTO_FILENAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="ID_SUSCRIBER" Type="bigint" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="255" />
+          <Property Name="ACTIVATE_TOKEN" Type="bigint" />
+          <Property Name="ALIAS" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__USERS__ID_SUSCRI__31EC6D26">
+          <End Role="SUSCRIBER" Type="Self.SUSCRIBER" Multiplicity="0..1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUSCRIBER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="ID_SUSCRIBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ACTIVATE_TOKEN_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="ACTIVATE_TOKEN" Type="Self.ACTIVATE_TOKEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ACTIVATE_TOKEN">
+              <PropertyRef Name="ID_USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUSCRIBER_CONFIG_SUSCRIBER">
+          <End Role="SUSCRIBER" Type="Self.SUSCRIBER" Multiplicity="1" />
+          <End Role="SUSCRIBER_CONFIG" Type="Self.SUSCRIBER_CONFIG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUSCRIBER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SUSCRIBER_CONFIG">
+              <PropertyRef Name="ID_SUSCRIBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUSCRIBER_PSP">
+          <End Role="PSP" Type="Self.PSP" Multiplicity="1" />
+          <End Role="SUSCRIBER" Type="Self.SUSCRIBER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PSP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SUSCRIBER">
+              <PropertyRef Name="ID_PSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_SUSCRIBER">
+          <End Role="SUSCRIBER" Type="Self.SUSCRIBER" Multiplicity="0..1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUSCRIBER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="ID_SUSCRIBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BicaVirtualWalletModelStoreContainer">
+          <EntitySet Name="ACTIVATE_TOKEN" EntityType="Self.ACTIVATE_TOKEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PSP" EntityType="Self.PSP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROL" EntityType="Self.ROL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SHOP" EntityType="Self.SHOP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUSCRIBER" EntityType="Self.SUSCRIBER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUSCRIBER_CONFIG" EntityType="Self.SUSCRIBER_CONFIG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__USERS__ID_SUSCRI__31EC6D26" Association="Self.FK__USERS__ID_SUSCRI__31EC6D26">
+            <End Role="SUSCRIBER" EntitySet="SUSCRIBER" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ACTIVATE_TOKEN_USER" Association="Self.FK_ACTIVATE_TOKEN_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="ACTIVATE_TOKEN" EntitySet="ACTIVATE_TOKEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUSCRIBER_CONFIG_SUSCRIBER" Association="Self.FK_SUSCRIBER_CONFIG_SUSCRIBER">
+            <End Role="SUSCRIBER" EntitySet="SUSCRIBER" />
+            <End Role="SUSCRIBER_CONFIG" EntitySet="SUSCRIBER_CONFIG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUSCRIBER_PSP" Association="Self.FK_SUSCRIBER_PSP">
+            <End Role="PSP" EntitySet="PSP" />
+            <End Role="SUSCRIBER" EntitySet="SUSCRIBER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_SUSCRIBER" Association="Self.FK_USER_SUSCRIBER">
+            <End Role="SUSCRIBER" EntitySet="SUSCRIBER" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Bica.VirtualWalletModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACTIVATE_TOKEN" EntityType="Bica.VirtualWalletModel.ACTIVATE_TOKEN" />
+          <EntitySet Name="PSP" EntityType="Bica.VirtualWalletModel.PSP" />
+          <EntitySet Name="ROL" EntityType="Bica.VirtualWalletModel.ROL" />
+          <EntitySet Name="SHOP" EntityType="Bica.VirtualWalletModel.SHOP" />
+          <EntitySet Name="SUSCRIBER" EntityType="Bica.VirtualWalletModel.SUSCRIBER" />
+          <EntitySet Name="SUSCRIBER_CONFIG" EntityType="Bica.VirtualWalletModel.SUSCRIBER_CONFIG" />
+          <EntitySet Name="sysdiagrams" EntityType="Bica.VirtualWalletModel.sysdiagrams" />
+          <EntitySet Name="USER" EntityType="Bica.VirtualWalletModel.USER" />
+          <AssociationSet Name="FK_ACTIVATE_TOKEN_USER" Association="Bica.VirtualWalletModel.FK_ACTIVATE_TOKEN_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="ACTIVATE_TOKEN" EntitySet="ACTIVATE_TOKEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUSCRIBER_PSP" Association="Bica.VirtualWalletModel.FK_SUSCRIBER_PSP">
+            <End Role="PSP" EntitySet="PSP" />
+            <End Role="SUSCRIBER" EntitySet="SUSCRIBER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USERS__ID_SUSCRI__31EC6D26" Association="Bica.VirtualWalletModel.FK__USERS__ID_SUSCRI__31EC6D26">
+            <End Role="SUSCRIBER" EntitySet="SUSCRIBER" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUSCRIBER_CONFIG_SUSCRIBER" Association="Bica.VirtualWalletModel.FK_SUSCRIBER_CONFIG_SUSCRIBER">
+            <End Role="SUSCRIBER" EntitySet="SUSCRIBER" />
+            <End Role="SUSCRIBER_CONFIG" EntitySet="SUSCRIBER_CONFIG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_SUSCRIBER" Association="Bica.VirtualWalletModel.FK_USER_SUSCRIBER">
+            <End Role="SUSCRIBER" EntitySet="SUSCRIBER" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ACTIVATE_TOKEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_USER" Type="Int64" Nullable="false" />
+          <Property Name="ACTIVATE_TOKEN1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_USER_ID" Type="Int64" Nullable="false" />
+          <Property Name="MODIFIED_USER_ID" Type="Int64" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Byte" Nullable="false" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="USER" Relationship="Bica.VirtualWalletModel.FK_ACTIVATE_TOKEN_USER" FromRole="ACTIVATE_TOKEN" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="PSP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="CREATED_USER_ID" Type="Int64" Nullable="false" />
+          <Property Name="MODIFIED_USER_ID" Type="Int64" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Byte" Nullable="false" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="ENABLED" Type="Byte" />
+          <NavigationProperty Name="SUSCRIBER" Relationship="Bica.VirtualWalletModel.FK_SUSCRIBER_PSP" FromRole="PSP" ToRole="SUSCRIBER" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_USER_ID" Type="Int64" Nullable="false" />
+          <Property Name="MODIFIED_USER_ID" Type="Int64" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Byte" Nullable="false" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SHOP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LATITUDE" Type="Decimal" Nullable="false" Precision="20" Scale="18" />
+          <Property Name="LONGITUDE" Type="Decimal" Nullable="false" Precision="20" Scale="18" />
+          <Property Name="ACCURACY" Type="Decimal" Precision="20" Scale="18" />
+          <Property Name="ALTITUDE" Type="Decimal" Precision="20" Scale="18" />
+          <Property Name="CREATED_USER_ID" Type="Int64" Nullable="false" />
+          <Property Name="MODIFIED_USER_ID" Type="Int64" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Byte" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SUSCRIBER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_PSP" Type="Int64" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CBU" Type="String" MaxLength="22" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_USER_ID" Type="Int64" Nullable="false" />
+          <Property Name="MODIFIED_USER_ID" Type="Int64" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Byte" Nullable="false" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PSP" Relationship="Bica.VirtualWalletModel.FK_SUSCRIBER_PSP" FromRole="SUSCRIBER" ToRole="PSP" />
+          <NavigationProperty Name="USER" Relationship="Bica.VirtualWalletModel.FK__USERS__ID_SUSCRI__31EC6D26" FromRole="SUSCRIBER" ToRole="USER" />
+          <NavigationProperty Name="SUSCRIBER_CONFIG" Relationship="Bica.VirtualWalletModel.FK_SUSCRIBER_CONFIG_SUSCRIBER" FromRole="SUSCRIBER" ToRole="SUSCRIBER_CONFIG" />
+          <NavigationProperty Name="USER1" Relationship="Bica.VirtualWalletModel.FK_USER_SUSCRIBER" FromRole="SUSCRIBER" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="SUSCRIBER_CONFIG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_SUSCRIBER" Type="Int64" Nullable="false" />
+          <Property Name="KEY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VALUE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_USER_ID" Type="Int64" Nullable="false" />
+          <Property Name="MODIFIED_USER_ID" Type="Int64" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Byte" Nullable="false" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SUSCRIBER" Relationship="Bica.VirtualWalletModel.FK_SUSCRIBER_CONFIG_SUSCRIBER" FromRole="SUSCRIBER_CONFIG" ToRole="SUSCRIBER" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="USER_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="PHONE" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="ADDRESS" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="CREATED_USER_ID" Type="Int64" Nullable="false" />
+          <Property Name="MODIFIED_USER_ID" Type="Int64" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Byte" Nullable="false" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="ENABLED" Type="Byte" Nullable="false" />
+          <Property Name="PHOTO_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PHOTO_FILENAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ID_SUSCRIBER" Type="Int64" />
+          <Property Name="PASSWORD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ACTIVATE_TOKEN" Type="Int64" />
+          <Property Name="ALIAS" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="ACTIVATE_TOKEN1" Relationship="Bica.VirtualWalletModel.FK_ACTIVATE_TOKEN_USER" FromRole="USER" ToRole="ACTIVATE_TOKEN" />
+          <NavigationProperty Name="SUSCRIBER" Relationship="Bica.VirtualWalletModel.FK__USERS__ID_SUSCRI__31EC6D26" FromRole="USER" ToRole="SUSCRIBER" />
+          <NavigationProperty Name="SUSCRIBER1" Relationship="Bica.VirtualWalletModel.FK_USER_SUSCRIBER" FromRole="USER" ToRole="SUSCRIBER" />
+        </EntityType>
+        <Association Name="FK_ACTIVATE_TOKEN_USER">
+          <End Type="Bica.VirtualWalletModel.USER" Role="USER" Multiplicity="1" />
+          <End Type="Bica.VirtualWalletModel.ACTIVATE_TOKEN" Role="ACTIVATE_TOKEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ACTIVATE_TOKEN">
+              <PropertyRef Name="ID_USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUSCRIBER_PSP">
+          <End Type="Bica.VirtualWalletModel.PSP" Role="PSP" Multiplicity="1" />
+          <End Type="Bica.VirtualWalletModel.SUSCRIBER" Role="SUSCRIBER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PSP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SUSCRIBER">
+              <PropertyRef Name="ID_PSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USERS__ID_SUSCRI__31EC6D26">
+          <End Type="Bica.VirtualWalletModel.SUSCRIBER" Role="SUSCRIBER" Multiplicity="0..1" />
+          <End Type="Bica.VirtualWalletModel.USER" Role="USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUSCRIBER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="ID_SUSCRIBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUSCRIBER_CONFIG_SUSCRIBER">
+          <End Type="Bica.VirtualWalletModel.SUSCRIBER" Role="SUSCRIBER" Multiplicity="1" />
+          <End Type="Bica.VirtualWalletModel.SUSCRIBER_CONFIG" Role="SUSCRIBER_CONFIG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUSCRIBER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SUSCRIBER_CONFIG">
+              <PropertyRef Name="ID_SUSCRIBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_SUSCRIBER">
+          <End Type="Bica.VirtualWalletModel.SUSCRIBER" Role="SUSCRIBER" Multiplicity="0..1" />
+          <End Type="Bica.VirtualWalletModel.USER" Role="USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUSCRIBER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="ID_SUSCRIBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BicaVirtualWalletModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="ACTIVATE_TOKEN">
+            <EntityTypeMapping TypeName="Bica.VirtualWalletModel.ACTIVATE_TOKEN">
+              <MappingFragment StoreEntitySet="ACTIVATE_TOKEN">
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_USER_ID" ColumnName="MODIFIED_USER_ID" />
+                <ScalarProperty Name="CREATED_USER_ID" ColumnName="CREATED_USER_ID" />
+                <ScalarProperty Name="ACTIVATE_TOKEN1" ColumnName="ACTIVATE_TOKEN" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PSP">
+            <EntityTypeMapping TypeName="Bica.VirtualWalletModel.PSP">
+              <MappingFragment StoreEntitySet="PSP">
+                <ScalarProperty Name="ENABLED" ColumnName="ENABLED" />
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_USER_ID" ColumnName="MODIFIED_USER_ID" />
+                <ScalarProperty Name="CREATED_USER_ID" ColumnName="CREATED_USER_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROL">
+            <EntityTypeMapping TypeName="Bica.VirtualWalletModel.ROL">
+              <MappingFragment StoreEntitySet="ROL">
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_USER_ID" ColumnName="MODIFIED_USER_ID" />
+                <ScalarProperty Name="CREATED_USER_ID" ColumnName="CREATED_USER_ID" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SHOP">
+            <EntityTypeMapping TypeName="Bica.VirtualWalletModel.SHOP">
+              <MappingFragment StoreEntitySet="SHOP">
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_USER_ID" ColumnName="MODIFIED_USER_ID" />
+                <ScalarProperty Name="CREATED_USER_ID" ColumnName="CREATED_USER_ID" />
+                <ScalarProperty Name="ALTITUDE" ColumnName="ALTITUDE" />
+                <ScalarProperty Name="ACCURACY" ColumnName="ACCURACY" />
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUSCRIBER">
+            <EntityTypeMapping TypeName="Bica.VirtualWalletModel.SUSCRIBER">
+              <MappingFragment StoreEntitySet="SUSCRIBER">
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_USER_ID" ColumnName="MODIFIED_USER_ID" />
+                <ScalarProperty Name="CREATED_USER_ID" ColumnName="CREATED_USER_ID" />
+                <ScalarProperty Name="CBU" ColumnName="CBU" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID_PSP" ColumnName="ID_PSP" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUSCRIBER_CONFIG">
+            <EntityTypeMapping TypeName="Bica.VirtualWalletModel.SUSCRIBER_CONFIG">
+              <MappingFragment StoreEntitySet="SUSCRIBER_CONFIG">
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_USER_ID" ColumnName="MODIFIED_USER_ID" />
+                <ScalarProperty Name="CREATED_USER_ID" ColumnName="CREATED_USER_ID" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+                <ScalarProperty Name="KEY" ColumnName="KEY" />
+                <ScalarProperty Name="ID_SUSCRIBER" ColumnName="ID_SUSCRIBER" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Bica.VirtualWalletModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER">
+            <EntityTypeMapping TypeName="Bica.VirtualWalletModel.USER">
+              <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="ALIAS" ColumnName="ALIAS" />
+                <ScalarProperty Name="ACTIVATE_TOKEN" ColumnName="ACTIVATE_TOKEN" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="ID_SUSCRIBER" ColumnName="ID_SUSCRIBER" />
+                <ScalarProperty Name="PHOTO_FILENAME" ColumnName="PHOTO_FILENAME" />
+                <ScalarProperty Name="PHOTO_IMAGE" ColumnName="PHOTO_IMAGE" />
+                <ScalarProperty Name="ENABLED" ColumnName="ENABLED" />
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_USER_ID" ColumnName="MODIFIED_USER_ID" />
+                <ScalarProperty Name="CREATED_USER_ID" ColumnName="CREATED_USER_ID" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="912f6319dd7541dea0be95669831ab34" Name="Diagram1">
+        <EntityTypeShape EntityType="Bica.VirtualWalletModel.ACTIVATE_TOKEN" Width="1.5" PointX="7.5" PointY="6.375" />
+        <EntityTypeShape EntityType="Bica.VirtualWalletModel.PSP" Width="1.5" PointX="0.75" PointY="4.5" />
+        <EntityTypeShape EntityType="Bica.VirtualWalletModel.ROL" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Bica.VirtualWalletModel.SHOP" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="Bica.VirtualWalletModel.SUSCRIBER" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="Bica.VirtualWalletModel.SUSCRIBER_CONFIG" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="Bica.VirtualWalletModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Bica.VirtualWalletModel.USER" Width="1.5" PointX="5.25" PointY="5.125" />
+        <AssociationConnector Association="Bica.VirtualWalletModel.FK_ACTIVATE_TOKEN_USER" />
+        <AssociationConnector Association="Bica.VirtualWalletModel.FK_SUSCRIBER_PSP" />
+        <AssociationConnector Association="Bica.VirtualWalletModel.FK__USERS__ID_SUSCRI__31EC6D26" />
+        <AssociationConnector Association="Bica.VirtualWalletModel.FK_SUSCRIBER_CONFIG_SUSCRIBER" />
+        <AssociationConnector Association="Bica.VirtualWalletModel.FK_USER_SUSCRIBER" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

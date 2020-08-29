@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiferentesPruebas", "DiferentesPruebas\DiferentesPruebas.csproj", "{769CBF17-4661-4C68-80F2-487DB135B860}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService-TestJWT", "WcfService-TestJWT\WcfService-TestJWT.csproj", "{0AB0EC2F-E1EF-47EB-A62F-E97222C40B1F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modelo", "Modelo\Modelo.csproj", "{5C799BF3-2737-41BC-BA43-038903617E33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCompilacionConVariables", "TestCompilacionConVariables\TestCompilacionConVariables.csproj", "{FCDC132A-AB3E-488D-A872-D85A4DC447B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaConsola", "PruebaConsola\PruebaConsola.csproj", "{74130751-466F-4274-8282-6229349AD753}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PruebaConsolaSetup", "PruebaConsolaSetup\PruebaConsolaSetup.vdproj", "{9A065939-0FD7-4FE1-9825-2B5859EC3E95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaWinform", "PruebaWinform\PruebaWinform.csproj", "{6748B606-566F-4A3B-B2D0-BD7168D67353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encriptar_TarjetaDebito", "Encriptar_TarjetaDebito\Encriptar_TarjetaDebito.csproj", "{CEADD7E2-71EB-4D5A-8805-1F295E73FEC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFormPruebaServidorLicencias", "WFormPruebaServidorLicencias\WFormPruebaServidorLicencias.csproj", "{8A348A59-20FD-4808-B1BA-19A2EF60D704}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Opedo.Licensing", "Opedo.Licensing\Opedo.Licensing.csproj", "{C0E46E15-FCAF-4012-8A5F-18E9F302571A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Opedo.Licensing.Client", "Opedo.Licensing.Client\Opedo.Licensing.Client.csproj", "{0D537461-C726-40D4-A5A0-BDCF787DBBBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{769CBF17-4661-4C68-80F2-487DB135B860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{769CBF17-4661-4C68-80F2-487DB135B860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{769CBF17-4661-4C68-80F2-487DB135B860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{769CBF17-4661-4C68-80F2-487DB135B860}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AB0EC2F-E1EF-47EB-A62F-E97222C40B1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AB0EC2F-E1EF-47EB-A62F-E97222C40B1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AB0EC2F-E1EF-47EB-A62F-E97222C40B1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AB0EC2F-E1EF-47EB-A62F-E97222C40B1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C799BF3-2737-41BC-BA43-038903617E33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C799BF3-2737-41BC-BA43-038903617E33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C799BF3-2737-41BC-BA43-038903617E33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C799BF3-2737-41BC-BA43-038903617E33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCDC132A-AB3E-488D-A872-D85A4DC447B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCDC132A-AB3E-488D-A872-D85A4DC447B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCDC132A-AB3E-488D-A872-D85A4DC447B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCDC132A-AB3E-488D-A872-D85A4DC447B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74130751-466F-4274-8282-6229349AD753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74130751-466F-4274-8282-6229349AD753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74130751-466F-4274-8282-6229349AD753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74130751-466F-4274-8282-6229349AD753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A065939-0FD7-4FE1-9825-2B5859EC3E95}.Debug|Any CPU.ActiveCfg = Debug
+		{9A065939-0FD7-4FE1-9825-2B5859EC3E95}.Release|Any CPU.ActiveCfg = Release
+		{6748B606-566F-4A3B-B2D0-BD7168D67353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6748B606-566F-4A3B-B2D0-BD7168D67353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6748B606-566F-4A3B-B2D0-BD7168D67353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6748B606-566F-4A3B-B2D0-BD7168D67353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEADD7E2-71EB-4D5A-8805-1F295E73FEC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEADD7E2-71EB-4D5A-8805-1F295E73FEC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEADD7E2-71EB-4D5A-8805-1F295E73FEC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEADD7E2-71EB-4D5A-8805-1F295E73FEC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A348A59-20FD-4808-B1BA-19A2EF60D704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A348A59-20FD-4808-B1BA-19A2EF60D704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A348A59-20FD-4808-B1BA-19A2EF60D704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A348A59-20FD-4808-B1BA-19A2EF60D704}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0E46E15-FCAF-4012-8A5F-18E9F302571A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0E46E15-FCAF-4012-8A5F-18E9F302571A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0E46E15-FCAF-4012-8A5F-18E9F302571A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0E46E15-FCAF-4012-8A5F-18E9F302571A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D537461-C726-40D4-A5A0-BDCF787DBBBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D537461-C726-40D4-A5A0-BDCF787DBBBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D537461-C726-40D4-A5A0-BDCF787DBBBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D537461-C726-40D4-A5A0-BDCF787DBBBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54E75D4B-48AF-4DEC-865F-589178ADA6FB}
+	EndGlobalSection
+EndGlobal
